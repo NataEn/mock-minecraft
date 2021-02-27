@@ -7,3 +7,36 @@
   font-style: normal;
   font-display: swap;
 }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+  overflow: auto;
+}
+section {
+  width: 100vw;
+  height: 100vh;
+}
+#intro {
+  font-family: "Minecraft";
+  background-image: url(./img/intro.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#intro-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.intro-nav__buttons {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "mock-minecraft",
+  "version": "1.0.0",
+  "description": "minecraft created with simple technologies: css, html and JS",
+  "main": "index.js",
+  "dependencies": {
+    "install": "^0.13.0",
+    "normalize.css": "^8.0.1",
+    "npm": "^7.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NataEn/mock-minecraft.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NataEn/mock-minecraft/issues"
+  },
+  "homepage": "https://github.com/NataEn/mock-minecraft#readme"
+}

@@ -4,19 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css" />
     <link rel="stylesheet" href="style.css" />
     <title>mock-minecraft</title>
   </head>
   <body>
     <section id="intro">
       <h1>Mincraft</h1>
-      <nav class="buttons">
-        <button class="start-game"></button>
-        <button class="start-game"></button>
-        <button class="start-game"></button>
+      <nav id="intro-nav">
+        <ul class="intro-nav__buttons">
+          <li class="instructions">Instructions</li>
+          <li class="start-game">Start</li>
+          <li class="close">Close</li>
+        </ul>
       </nav>
     </section>
-    <section id="description"></section>
+    <section id="instructions"></section>
     <section id="game">
       <div class="game__world"></div>
       <div class="game__manue">
