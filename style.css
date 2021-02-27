@@ -15,11 +15,16 @@
   overflow: auto;
 }
 section {
+  font-family: "Minecraft";
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+}
+section h1 {
+  font-size: 6rem;
+  letter-spacing: 0.4em;
 }
 #intro {
-  font-family: "Minecraft";
   background-image: url(./img/intro.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,16 +32,47 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  letter-spacing: 0.2em;
 }
 
 #intro-nav {
+  margin: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 .intro-nav__buttons {
   list-style-type: none;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 60%;
+  height: 100%;
+}
+
+.intro-nav__buttons li {
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  background-color: aliceblue;
+  margin: 1rem;
+  cursor: pointer;
+}
+.intro-nav__buttons li a {
+  text-decoration: none;
+}
+.intro-nav__buttons li:hover {
+  background-color: rgb(224, 138, 103);
+}
+#instructions {
+  padding: 2rem;
+  background-image: url(./img/intro.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  letter-spacing: 0.2em;
 }
