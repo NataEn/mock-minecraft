@@ -6,21 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css" />
     <link rel="stylesheet" href="style.css" />
+    <script src="./index.js" defer></script>
     <title>mock-minecraft</title>
   </head>
   <body>
     <section id="intro">
-      <h1>Mincraft</h1>
+      <div class="background"></div>
+      <header>
+        <img src="./img/minecraft.png" alt="logo" />
+        <!-- <object data="./img/logo.svg" width="300" height="300"></object> -->
+      </header>
       <nav id="intro-nav">
         <ul class="intro-nav__buttons">
-          <li class="instructions"><a href="#instructions">Instructions</a></li>
+          <li class="instructions">
+            <a href="#instructions">Instructions</a>
+          </li>
           <li class="start-game"><a href="#game">Start</a></li>
           <li class="close">Close</li>
         </ul>
       </nav>
     </section>
     <section id="instructions">
-      <h1 class="instructions">Instructions</h1>
+      <div class="background"></div>
+      <header>
+        <img src="./img/instructions.png" alt="logo" />
+      </header>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit veritatis
         error cumque cum fugit eveniet. Nemo facilis, quasi voluptatum,
@@ -42,13 +52,11 @@
       </p>
     </section>
     <section id="game">
-      <h1>Game</h1>
       <div class="game__world"></div>
       <div class="game__manue">
         <div class="game__menue__tools"><h3 class="tools"></h3></div>
         <div class="game__menue__inventory"><h3 class="inventory"></h3></div>
       </div>
     </section>
-    <script src="./index.js"></script>
   </body>
 </html>
