@@ -1,2 +1,8 @@
 # mock-minecraft
-minecraft created with simple technologies: css, html and JS
+
+A mock Minecraft implementing JavaScript Object Oriented Programing, that is an Es6 synthetic sugar for prototypal programing.
+
+Tools and Technologies:
+Vanilla JavaScript
+CSS
+HTML5
