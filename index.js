@@ -65,39 +65,55 @@ class ElementGroup {
   }
 }
 ElementGroup.prototype.constructor._map = {};
-ElementGroup.prototype.constructor._appendToMap = function (name) {
-  ElementGroup.prototype.constructor._map[name] = 0;
-  return ElementGroup.prototype.constructor._map[name]++;
+ElementGroup.prototype.constructor._appendToMap = function (
+  name,
+  startRow,
+  endRow,
+  startCol,
+  endCol
+) {
+  return (ElementGroup.prototype.constructor._map[name] = {
+    startRow,
+    endRow,
+    startCol,
+    endCol,
+  });
 };
+class SkyGroup extends ElementGroup {}
+class GrassGroup extends ElementGroup {}
+class TreeGroup extends ElementGroup {}
+class RockGroup extends ElementGroup {}
+class LavaGroup extends ElementGroup {}
 class World {
   constructor(rows, columns) {
     this._rows = rows;
     this._columns = columns;
-    this._grid = [];
+    this._grid = new Array(this._rows).fill(
+      new Array(this._columns).fill("sky")
+    );
   }
 
-  generateGrid() {
-    for (let row = 0; row <= this._rows; row++) {
-      const newRow = [];
-      this._grid.push(newRow);
-      for (let col = 0; col <= this._columns; col++) {
-        newRow.push(0);
-      }
-    }
-    this._grid = grid;
+  get grid() {
     return this._grid;
   }
-  get Grid() {
-    return this._grid;
-  }
+
   set elementArea(startRow, endRow, startCol, endCol) {}
+  /**
+   * Populates the World grid with names of elements
+   * @param {class ElementGroup } elementsMap
+   * @returns {Array} grid
+   * if name is not set then it remains to be the sky element
+   */
   populateGridWithElements(elementsMap) {
-    for (let row = 0; row <= this._rows; row++) {
-      const newRow = [];
-      grid.push(newRow);
-      for (let col = 0; col <= this._columns; col++) {
-        newRow.push(0);
+    //elementsMap=ElementGroup.map
+    for (const [elemName, data] of Object.entries(elementsMap)) {
+      const tempFill = new Array(data.endCol - data.startCol).fill(elemName);
+      for (let i = data.startRow; i < data.endRow; i++) {
+        this._grid[i].slice(data.endCol, data.startCol, tempFill);
       }
     }
+    return this._grid;
   }
 }
+// ToDo: use the elementGroup map to populate the world grid
+// in the map: {'name'}
