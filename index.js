@@ -36,10 +36,9 @@ class WorldElement {
   get counter() {
     return this._counter;
   }
+  static minedElementCounter() {}
 }
 
-class Sky extends WorldElement {}
-Sky.prototype._counter = (Sky.prototype._counter || 0) + 1;
 class Grass extends WorldElement {}
 Grass.prototype._counter = (Grass.prototype._counter || 0) + 1;
 class Tree extends WorldElement {}
@@ -49,15 +48,13 @@ Rock.prototype._counter = (Rock.prototype._counter || 0) + 1;
 class Lava extends WorldElement {}
 Lava.prototype._counter = (Lava.prototype._counter || 0) + 1;
 class ElementGroup {
-  constructor(name, startRow, endRow, startCol, endCol) {
+  constructor(name, startRow, startCol) {
     this._name = name;
     this._map = this.constructor._map;
     ElementGroup.prototype.constructor._appendToMap(
       this._name,
       startRow,
-      endRow,
-      startCol,
-      endCol
+      startCol
     );
   }
   get map() {
@@ -79,7 +76,7 @@ ElementGroup.prototype.constructor._appendToMap = function (
     endCol,
   });
 };
-class SkyGroup extends ElementGroup {}
+
 class GrassGroup extends ElementGroup {}
 class TreeGroup extends ElementGroup {}
 class RockGroup extends ElementGroup {}
@@ -107,13 +104,44 @@ class World {
   populateGridWithElements(elementsMap) {
     //elementsMap=ElementGroup.map
     for (const [elemName, data] of Object.entries(elementsMap)) {
-      const tempFill = new Array(data.endCol - data.startCol).fill(elemName);
-      for (let i = data.startRow; i < data.endRow; i++) {
-        this._grid[i].slice(data.endCol, data.startCol, tempFill);
+      const elemArray = new Array(data.counter).fill(elemName);
+      for (let i = data.startRow; i < data.counter; i++) {
+        this._grid[i].slice(
+          data.startCol,
+          data.startCol + data.counter,
+          elemArray
+        );
       }
     }
     return this._grid;
   }
+  populateDomWithElements() {
+    const container = $(".game__world");
+    for (let elem of this._grid) {
+      const child = new elem.class(elemProp);
+      container.appendChild(child);
+    }
+  }
+  attachEventListener() {
+    const container = $(".game__world");
+    container.addEventListener("click", function (event) {
+      //get the identity of target block
+      //if target block is a tool -> set current tool in this state allow to mine specific target
+      //increase specific counter by 1
+      //replace the identity of target block to sky
+      //event.target.dataset
+    });
+  }
+}
+class Game {
+  constructor(world) {
+    this.state = {
+      tools: [],
+      blocks: [],
+    };
+    this._world = world;
+  }
+  resetGame() {}
 }
 // ToDo: use the elementGroup map to populate the world grid
 // in the map: {'name'}

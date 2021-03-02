@@ -5,4 +5,8 @@ A mock Minecraft implementing JavaScript Object Oriented Programing, that is an 
 Tools and Technologies:
 Vanilla JavaScript
 CSS
-HTML5
+HTML
+
+## resources:
+
+1. headings: https://textcraft.net/
